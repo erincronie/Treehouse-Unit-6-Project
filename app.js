@@ -42,6 +42,7 @@ function addPhraseToDisplay(arr) {
     //return arr; - may not need this?
 }
 addPhraseToDisplay(phraseArray);
+// console.log(addRandomPhraseAsArray(phrases));
 
 
 //check if a letter is in the phrase - check letter function
@@ -50,12 +51,28 @@ function checkLetter( button )  {
     let match = null;
     let selectLi = document.querySelectorAll('li')
     for ( let i = 0; 1 < letters.length; i++ ){
-        if ( button.textContent === selectLi[li].textContent.toLowerCase() ){
+        if (button.textContent === selectli[i].textContent.toLowerCase()) {
             selectLi[i].classList.add('show');
-            match = button.textContent;
+            match = button;
         }
     }
 return match;
 }
 
 //listen for the onscreen keyboard to be clicked
+qwerty.addEventListener("click", (e) => {
+    let btn = e.target;
+    if (btn.tagName === "BUTTON") {
+      btn.disabled = true;
+      btn.className = "chosen";
+      let letterFound = checkLetter(btn);
+  
+      if (letterFound === null) {
+        const lost = document.querySelectorAll(".tries img")[missed];
+        lost.src = "images/lostHeart.png";
+        missed++;
+      }
+    }
+    checkWin();
+  });
+    //console.log(event.target.textContent);

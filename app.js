@@ -3,7 +3,6 @@ const overlay = document.querySelector('.start');
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase ul');
 
-
 let missed = 0; 
 let phrases = [
 'Single Ladies',
@@ -19,8 +18,6 @@ const phraseArray = getRandomPhraseAsArray(phrases);
  startButton.addEventListener('click', e => {
     overlay.style.display = 'none'});
 
-
-
 //return a random phrase from an array
 function getRandomPhraseAsArray(arr) {
     let random = Math.floor(Math.random() * arr.length);
@@ -28,9 +25,6 @@ function getRandomPhraseAsArray(arr) {
     let newPhrase = randomPhrase.split('');
     return newPhrase;
 }
-
-
-
 
 //adds the letters of a string to the display
 function addPhraseToDisplay(arr) {
@@ -83,7 +77,6 @@ qwerty.addEventListener("click", (e) => {
     checkWin();
 });
     //console.log(event.target.textContent);
-
 
 
 //check if the game has been won or lost
